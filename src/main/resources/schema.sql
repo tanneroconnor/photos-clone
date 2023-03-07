@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS photos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    file_name VARCHAR(255) NOT NULL,
+    content_type VARCHAR(255) NOT NULL,
+    raw_data VARBINARY NOT NULL
+);
