@@ -13,11 +13,6 @@ public class PhotosService {
         this.photosRepository = photosRepository;
     }
 
-
-    public Iterable<Photo> getAll() {
-        return photosRepository.findAll();
-    }
-
     public Iterable<Photo> getAllPhotosSortedByIdDesc() {
         return photosRepository.findAllByOrderByIdDesc();
     }
