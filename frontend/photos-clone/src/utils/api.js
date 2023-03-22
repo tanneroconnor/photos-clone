@@ -47,7 +47,7 @@ export async function deletePhoto(id) {
 
 export async function downloadPhoto(id) {
     try {
-        const response = await fetch(`http://localhost:8080/download/${id}`, {
+        const response = await fetch(`${API_URLS.download}/${id}`, {
             credentials: 'include'
         });
 
