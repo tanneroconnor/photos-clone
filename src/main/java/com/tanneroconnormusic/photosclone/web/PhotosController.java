@@ -31,11 +31,6 @@ public class PhotosController {
         return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(index);
     }
 
-    @GetMapping("/photos")
-    public Iterable<Photo> getPhotos() {
-        return photosService.getAll();
-    }
-
     @GetMapping("/photos/{id}")
     public Photo getPhotos(@PathVariable Integer id) {
         Photo photo = photosService.get(id);
@@ -43,9 +38,12 @@ public class PhotosController {
         return photo;
     }
 
-    @GetMapping("/photos/all")
+    // Sorts the photos by id since sortBy is not currently implemented in the API.
+    // If the project were to scale and require more advanced sorting capabilities, Spring's
+    // PagingAndSortingRepository interface could be utilized.
+    @GetMapping("/photos")
     public Iterable<Photo> getAllPhotos() {
-        Iterable<Photo> photos = photosService.getAllPhotosSortedByUploadDate();
+        Iterable<Photo> photos = photosService.getAllPhotosSortedByIdDesc();
         if (photos == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return photos;
     }

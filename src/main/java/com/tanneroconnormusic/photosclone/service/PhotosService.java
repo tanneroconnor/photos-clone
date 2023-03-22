@@ -2,13 +2,7 @@ package com.tanneroconnormusic.photosclone.service;
 
 import com.tanneroconnormusic.photosclone.model.Photo;
 import com.tanneroconnormusic.photosclone.repository.PhotosRepository;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.util.List;
 
 @Service
 public class PhotosService {
@@ -24,7 +18,7 @@ public class PhotosService {
         return photosRepository.findAll();
     }
 
-    public Iterable<Photo> getAllPhotosSortedByUploadDate() {
+    public Iterable<Photo> getAllPhotosSortedByIdDesc() {
         return photosRepository.findAllByOrderByIdDesc();
     }
 
